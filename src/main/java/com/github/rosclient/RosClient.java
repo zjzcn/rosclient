@@ -98,9 +98,15 @@ public class RosClient extends WebSocketClient {
                     if (success == null) {
                         success = true;
                     }
-                    JSONObject values = jo.getJSONObject(Fields.FIELD_VALUES);
-                    Response response = new Response(success, values);
-                    cb.handleServiceResponse(response);
+                    if (success) {
+                        JSONObject values = jo.getJSONObject(Fields.FIELD_VALUES);
+                        Response response = new Response(success, values);
+                        cb.handleServiceResponse(response);
+                    } else {
+                        String values = jo.getString(Fields.FIELD_VALUES);
+                        Response response = new Response(success, values);
+                        cb.handleServiceResponse(response);
+                    }
                 }
             } else if (op.equals(Fields.OP_CODE_CALL_SERVICE)) {
                 String id = jo.getString(Fields.FIELD_ID);

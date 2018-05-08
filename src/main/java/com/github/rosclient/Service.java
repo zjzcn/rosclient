@@ -146,7 +146,8 @@ public class Service {
             if (response.isResult()) {
                 onSuccess(response);
             } else {
-                onFailure(new RosException("Service response result is false. id=" + requestId + ", values=" + response.getValues()));
+                onFailure(new RosException("Service response result is false. id=" + requestId
+                        + ", values=" + response.getValuesString()));
             }
         }
 

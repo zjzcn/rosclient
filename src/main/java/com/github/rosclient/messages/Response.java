@@ -8,6 +8,8 @@ public class Response {
 
     private JSONObject values;
 
+    private String valuesString;
+
     public Response() {
 
     }
@@ -15,6 +17,11 @@ public class Response {
     public Response(boolean result, JSONObject values) {
         this.result = result;
         this.values = values;
+    }
+
+    public Response(boolean result, String valuesString) {
+        this.result = result;
+        this.valuesString = valuesString;
     }
 
     public boolean isResult() {
@@ -31,5 +38,13 @@ public class Response {
 
     public void setValues(JSONObject values) {
         this.values = values;
+    }
+
+    public String getValuesString() {
+        return valuesString;
+    }
+
+    public void setValuesString(String valuesString) {
+        this.valuesString = valuesString;
     }
 }
